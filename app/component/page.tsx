@@ -21,6 +21,7 @@ export default function ComponentPage({searchParams,}: {
     const LINUX_SERVER_BS = "Linux-Server";
     const MAC_IL2CPP_BS = "Mac-IL2CPP";
     const MAC_SERVER_BS = "Mac-Server";
+    const WINDOWS_IL2CPP_BS = "Windows-IL2CPP";
     const WINDOWS_MONO_BS = "Windows-Mono";
     const WINDOWS_SERVER_BS = "Windows-Server";
     const UWP_BS = "Universal-Windows-Platform";
@@ -122,6 +123,11 @@ export default function ComponentPage({searchParams,}: {
                                                 href={parseLinkwin(MAC_SERVER_BS, version)}>
                                             <Download className="w-5 h-5 mr-2"/>
                                             Mac Dedicated Server Build Support
+                                        </Button>
+                                        <Button variant="secondary" className="w-full" size="lg"
+                                                href={parseLinkwin(WINDOWS_IL2CPP_BS, version)}>
+                                            <Download className="w-5 h-5 mr-2"/>
+                                            Windows Build Support (IL2CPP)
                                         </Button>
                                         <Button variant="secondary" className="w-full" size="lg"
                                                 href={parseLinkwin(WINDOWS_MONO_BS, version)}>
