@@ -203,7 +203,7 @@ export default function Page() {
 
 NoUnityCN是一项大家一起实现的**开源**项目，我们旨在为有中文使用需求的**海外Unity开发者**提供Unity Editor版本检索服务，我们不会保留任何数据。
 
-“Unity”、Unity 徽标及其他 Unity 商标是 Unity Technologies 或其在美国和其他地区的分支机构的商标或注册商标。NoUnityCN不是Unity Technologies优美缔软件提供的一项服务。
+“Unity”、Unity 徽标及其他 Unity 商标是 Unity Technologies 或其在美国和其他地区的分支机构的商标或注册商标。NoUnityCN不是Unity Technologies (优三缔科技有限公司) 软件提供的一项服务。
 
 NoUnityCN**不是破解、修改、下载工具**，而只是一个方便检索Unity版本的开源项目，仅供学习交流使用。
 
@@ -235,7 +235,7 @@ NoUnityCN**不是破解、修改、下载工具**，而只是一个方便检索U
         )}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">下载 Unity</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">下载 Unity Engine</h2>
             <p className="text-lg text-gray-600">选择适合您的版本开始创作</p>
           </div>
 

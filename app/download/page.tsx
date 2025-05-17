@@ -1,5 +1,5 @@
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
+import {SiteHeader} from "@/components/site-header"
+import {SiteFooter} from "@/components/site-footer"
 import {Download, Home} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {CardContent} from "@/components/ui/card";
@@ -59,33 +59,27 @@ export default function DownloadPage({searchParams,}: {
     }
 
     function parseLinkwin(key: string) {
-        let downloadLink = `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/Windows64EditorInstaller/UnitySetup64-${parseUnityHubUri(key)?.version}.exe`;
-        return downloadLink;
+        return `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/Windows64EditorInstaller/UnitySetup64-${parseUnityHubUri(key)?.version}.exe`;
     }
 
     function parseLinkwin32(key: string) {
-        let downloadLink = `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/Windows32EditorInstaller/UnitySetup32-${parseUnityHubUri(key)?.version}.exe`;
-        return downloadLink;
+        return `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/Windows32EditorInstaller/UnitySetup32-${parseUnityHubUri(key)?.version}.exe`;
     }
 
     function parseLinkwinarm(key: string) {
-        let downloadLink = `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/WindowsArm64EditorInstaller/UnitySetupArm64-${parseUnityHubUri(key)?.version}.exe`;
-        return downloadLink;
+        return `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/WindowsArm64EditorInstaller/UnitySetupArm64-${parseUnityHubUri(key)?.version}.exe`;
     }
 
     function parseLinkmac(key: string) {
-        let downloadLink = `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/MacEditorInstaller/Unity-${parseUnityHubUri(key)?.version}.pkg`;
-        return downloadLink;
+        return `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/MacEditorInstaller/Unity-${parseUnityHubUri(key)?.version}.pkg`;
     }
 
     function parseLinkmacarm(key: string) {
-        let downloadLink = `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/MacEditorInstallerArm64/Unity-${parseUnityHubUri(key)?.version}.pkg`;
-        return downloadLink;
+        return `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/MacEditorInstallerArm64/Unity-${parseUnityHubUri(key)?.version}.pkg`;
     }
 
     function parseLinklinux(key: string) {
-        let downloadLink = `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/LinuxEditortInstaller/Unity-${parseUnityHubUri(key)?.version}.tar.xz`;
-        return downloadLink;
+        return `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/LinuxEditortInstaller/Unity-${parseUnityHubUri(key)?.version}.tar.xz`;
     }
 
     // 检查当前版本是否支持特定平台

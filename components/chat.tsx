@@ -157,7 +157,7 @@ export function Chat({ initialContent }: ChatProps) {
           </Button>
         </div>
         <div className="fixed bottom-0 left-0 right-0 p-2 text-center text-xs text-gray-400 bg-transparent">
-      内容为AI生成，仅供参考
+      内容为AI生成，仅供参考!
         </div>
       </form>
     </div>

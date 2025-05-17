@@ -28,6 +28,19 @@ export default function CommunityPage() {
                 <Button className="w-full" href="https://github.com/NoUnityCN/NoUnityCN">访问</Button>
               </CardContent>
             </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <MessageCircle className="h-6 w-6" />
+                  Unity Discussions
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">访问Unity Discussions、和全球开发者讨论</p>
+                <Button className="w-full" href="https://discussions.unity.com/">访问</Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </main>
