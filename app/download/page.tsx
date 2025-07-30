@@ -190,7 +190,7 @@ export default function DownloadPage({searchParams,}: {
                                         <div className="flex items-center justify-between w-full">
                                             <div className="flex items-center">
                                                 <Download className="w-5 h-5 mr-2"/>
-                                                MacOS(Apple Silicon)下载
+                                                MacOS(ARM64)下载
                                             </div>
                                             <span className="text-xs text-gray-500">仅支持2021.2.0或更高</span>
                                         </div>
