@@ -3,6 +3,7 @@ import {SiteFooter} from "@/components/site-footer"
 import {Download, Home, Share} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {CardContent} from "@/components/ui/card";
+import Inform from "@/components/inform";
 
 export const dynamic = 'force-dynamic'; 
 
@@ -98,6 +99,8 @@ export default function DownloadPage({searchParams,}: {
     return (
         <div className="min-h-screen flex flex-col">
             <SiteHeader />
+            {/*公告组件*/}
+            <Inform filename="download" position="top-right" theme="gray" />
             <main className="flex-1">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <h1 className="text-4xl font-bold text-gray-900 mb-8 flex items-center gap-2">
