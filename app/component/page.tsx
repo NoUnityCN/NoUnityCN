@@ -1,5 +1,5 @@
-import {SiteHeader} from "@/components/site-header"
-import {SiteFooter} from "@/components/site-footer"
+import { SiteHeader } from "@/components/site-header"
+import { SiteFooter } from "@/components/site-footer"
 import {Download, Home} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
@@ -41,31 +41,33 @@ export default function ComponentPage({searchParams,}: {
     }
 
     // Unity Documentation
-    function parseLinkDocumentation(key: string): string {
+    function parseLinkDocumentation(key:string) {
         const pattern = /(?<=unityhub:\/\/)(\d+\.\d+)/;
         const matches = key.match(pattern);
-        if (!matches?.[1]) {
-            throw new Error('Invalid Unity Hub URI for documentation');
-        } else {
-            return `https://cloudmedia-docs.unity3d.com/docscloudstorage/${matches[1]}/UnityDocumentation.zip`;
-        }
+
+        let downloadLink = `https://cloudmedia-docs.unity3d.com/docscloudstorage/${matches?.[1]}/UnityDocumentation.zip`;
+        return downloadLink;
     }
 
     // Builtin Shaders
     function parseLinkBS(key:string) {
-        return `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/builtin_shaders-${parseUnityHubUri(key)?.version}.zip`;
+        let downloadLink = `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/builtin_shaders-${parseUnityHubUri(key)?.version}.zip`;
+        return downloadLink;
     }
 
     function parseLinkwin(bs:string , key:string) {
-        return `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/TargetSupportInstaller/UnitySetup-${bs}-Support-for-Editor-${parseUnityHubUri(key)?.version}.exe`;
+        let downloadLink = `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/TargetSupportInstaller/UnitySetup-${bs}-Support-for-Editor-${parseUnityHubUri(key)?.version}.exe`;
+        return downloadLink;
     }
 
     function parseLinkmac(bs:string , key:string) {
-        return `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/MacEditorTargetInstaller/UnitySetup-${bs}-Support-for-Editor-${parseUnityHubUri(key)?.version}.pkg`;
+        let downloadLink = `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/MacEditorTargetInstaller/UnitySetup-${bs}-Support-for-Editor-${parseUnityHubUri(key)?.version}.pkg`;
+        return downloadLink;
     }
 
     function parseLinklinux(bs:string , key:string) {
-        return `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/LinuxEditorTargetInstaller/UnitySetup-${bs}-Support-for-Editor-${parseUnityHubUri(key)?.version}.tar.xz`;
+        let downloadLink = `https://download.unity3d.com/download_unity/${parseUnityHubUri(key)?.fileId}/LinuxEditorTargetInstaller/UnitySetup-${bs}-Support-for-Editor-${parseUnityHubUri(key)?.version}.tar.xz`;
+        return downloadLink;
     }
 
     return (
