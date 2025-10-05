@@ -1,5 +1,13 @@
 {
   "6000": [
+    "unityhub://6000.1.17f1/c0b9d3899998",
+    "unityhub://6000.2.6f2/4a4dcaec6541",
+    "unityhub://6000.2.6f1/cc51a95c0300",
+    "unityhub://6000.2.5f1/43d04cd1df69",
+    "unityhub://6000.2.4f1/17550c9bb584",
+    "unityhub://6000.2.3f1/c7638eb16d91",
+    "unityhub://6000.2.2f1/ea398eefe1c2",
+    "unityhub://6000.2.1f1/55300504c302",
     "unityhub://6000.1.16f1/67bef3276ff1",
     "unityhub://6000.2.0f1/eed1c594c913",
     "unityhub://6000.1.15f1/faa32412f6c9",
@@ -42,6 +50,8 @@
     "unityhub://6000.0.0f1/4ff56b3ea44c"
   ],
   "2023": [
+    "unityhub://2023.1.22f1/c1416845ad01",
+    "unityhub://2023.2.22f1/6b19bf4f8115",
     "unityhub://2023.2.20f1/0e25a174756c",
     "unityhub://2023.2.19f1/95c298372b1e",
     "unityhub://2023.2.18f1/1cb755715f58",
@@ -86,6 +96,8 @@
     "unityhub://2023.1.0f1/a008fa768e6c"
   ],
   "2022": [
+    "unityhub://2022.1.25f1/6eece5ec9edc",
+    "unityhub://2022.2.23f1/16a49e77427a",
     "unityhub://2022.2.21f1/4907324dc95b",
     "unityhub://2022.2.20f1/c5d806317f84",
     "unityhub://2022.2.19f1/765657fe9343",
@@ -135,6 +147,8 @@
     "unityhub://2022.1.0f1/369b620af41c"
   ],
   "2021": [
+    "unityhub://2021.1.29f1/db29239097bd",
+    "unityhub://2021.2.20f1/bcf509533812",
     "unityhub://2021.2.19f1/602ecdbb2fb0",
     "unityhub://2021.2.18f1/0c6e675195cf",
     "unityhub://2021.2.17f1/efb8f635e7b1",
@@ -185,6 +199,8 @@
     "unityhub://2021.1.0f1/61a549675243"
   ],
   "2020": [
+    "unityhub://2020.1.18f1/de967051c903",
+    "unityhub://2020.2.8f1/8d515ec5f4e8",
     "unityhub://2020.2.7f1/c53830e277f1",
     "unityhub://2020.2.6f1/8a2143876886",
     "unityhub://2020.2.5f1/e2c53f129de5",
@@ -213,6 +229,9 @@
     "unityhub://2020.1.0f1/2ab9c4179772"
   ],
   "2019": [
+    "unityhub://2019.1.15f1/583d034c23b3",
+    "unityhub://2019.2.23f1/87f4fccf3219",
+    "unityhub://2019.3.17f1/3146848a1e9d",
     "unityhub://2019.3.15f1/59ff3e03856d",
     "unityhub://2019.3.14f1/2b330bf6d2d8",
     "unityhub://2019.3.13f1/d4ddf0d95db9",

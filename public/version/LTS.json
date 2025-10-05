@@ -1,5 +1,9 @@
 {
   "6000": [
+    "unityhub://6000.0.58f2/92dee566b325",
+    "unityhub://6000.0.58f1/44b8bf3a3225",
+    "unityhub://6000.0.57f1/b7b9860b7bbd",
+    "unityhub://6000.0.56f1/9c7b5e468860",
     "unityhub://6000.0.55f1/c5f59906196d",
     "unityhub://6000.0.54f1/4c506e5b5cc5",
     "unityhub://6000.0.53f1/283510a092d9",
@@ -35,6 +39,10 @@
     "unityhub://6000.0.23f1/1c4764c07fb4"
   ],
   "2022": [
+    "unityhub://2022.3.62f2/7670c08855a9",
+    "unityhub://2022.3.67f2/6bedba8691df",
+    "unityhub://2022.3.67f1/f018f3b81016",
+    "unityhub://2022.3.66f1/18347dd03c8f",
     "unityhub://2022.3.65f1/38ef61687f15",
     "unityhub://2022.3.64f1/a5c5c4ade6bd",
     "unityhub://2022.3.63f1/627856a17a90",
@@ -103,6 +111,9 @@
     "unityhub://2022.3.0f1/fb119bb0b476"
   ],
   "2021": [
+    "unityhub://2021.3.45f2/88f88f591b2e",
+    "unityhub://2021.3.56f2/667925324b48",
+    "unityhub://2021.3.56f1/4f19b0708d3a",
     "unityhub://2021.3.55f1/f87d5274e360",
     "unityhub://2021.3.54f1/80e9eb2cec47",
     "unityhub://2021.3.53f1/5c710799360e",
@@ -161,6 +172,7 @@
     "unityhub://2021.3.0f1/6eacc8284459"
   ],
   "2020": [
+    "unityhub://2020.3.49f1/18249dd5551b",
     "unityhub://2020.3.48f1/b805b124c6b7",
     "unityhub://2020.3.47f1/5ef4f5b5e2d4",
     "unityhub://2020.3.46f1/18bc01a066b4",
@@ -212,6 +224,7 @@
     "unityhub://2020.3.0f1/c7b5465681fb"
   ],
   "2019": [
+    "unityhub://2019.4.41f1/fb553f8fdd6c",
     "unityhub://2019.4.40f1/ffc62b691db5",
     "unityhub://2019.4.39f1/78d14dfa024b",
     "unityhub://2019.4.38f1/fdbb7325fa47",
@@ -395,7 +408,6 @@
     "unityhub://5.1.0f2/0e70286e975e",
     "unityhub://5.1.0f1/82c0618b396f",
     "unityhub://5.0.2f1/0b02744d4013",
-    "unityhub://5.0.1f1/5a2e8fe35a68",
-    "unityhub://5.0.0f4/5b98b70ebeb9"
+    "unityhub://5.0.1f1/5a2e8fe35a68"
   ]
 }
