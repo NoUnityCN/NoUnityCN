@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 
 const navigation = [
   { name: "主页", href: "/" },
+  { name: "工具", href: "/tools" },
   { name: "文档", href: "/docs" },
   { name: "社区", href: "/community" },
   { name: "Unity Hub", href: "/unityhub" },
