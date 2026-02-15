@@ -1,5 +1,7 @@
 {
   "6000": [
+    "unityhub://6000.3.8f1/1c7db571dde0",
+    "unityhub://6000.3.7f1/696ec25a53d1",
     "unityhub://6000.0.67f1/78a1c2bbeb6a",
     "unityhub://6000.3.6f1/bbb010bdb8a3",
     "unityhub://6000.0.66f2/b20bc5da3050",
@@ -57,6 +59,7 @@
     "unityhub://6000.0.23f1/1c4764c07fb4"
   ],
   "2022": [
+    "unityhub://2022.3.72f1/2b7afb1dc8e1",
     "unityhub://2022.3.71f1/c9bf13b0b844",
     "unityhub://2022.3.70f1/a70afc22862c",
     "unityhub://2022.3.69f1/621633b9d04b",
