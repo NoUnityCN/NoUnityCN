@@ -1,4 +1,4 @@
-// UnityModule/page.tsx
+// unityModule/page.tsx
 // 感谢 @HotYearKit 提供 C# 版本代码，没有他的贡献就没有这个模块的诞生。
 // 感谢 Larusso/unity-version-manager 开源项目
 'use client';
@@ -7,6 +7,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import Inform from "@/components/inform";
 
 
 // --- 枚举类型定义 ---
@@ -17,7 +18,7 @@ enum UnityReleaseDownloadArchitecture {
 }
 
 enum UnityReleaseDownloadPlatform {
-    MACOS = 'MACOS',
+    MACOS = 'MAC_OS',
     LINUX = 'LINUX',
     WINDOWS = 'WINDOWS'
 }
@@ -365,10 +366,10 @@ const UnityModuleFetcherInner: React.FC = () => {
         }
 
         // 设置 Stream
-        if (streamFromParam && Object.values(UnityReleaseStream).includes(streamFromParam)) {
-            setSelectedStream(streamFromParam);
-        } else if (streamFromParam === '') {
+        if (!streamFromParam) {
             setSelectedStream('');
+        } else if (Object.values(UnityReleaseStream).includes(streamFromParam as UnityReleaseStream)) {
+            setSelectedStream(streamFromParam);
         }
 
         // 设置 Entitlements
@@ -528,176 +529,165 @@ const UnityModuleFetcherInner: React.FC = () => {
     return (
         <>
             <SiteHeader/>
+
+            {/*公告组件*/}
+            <Inform filename="UnityModule" position="top-right" theme="yellow" />
+
             <br/>
-            <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl shadow-md space-y-6">
-                <h2 className="text-2xl font-bold text-gray-800">UnityHub modules.json 生成器</h2>
-                {/* URI 输入 */}
-                <div>
-                    <label htmlFor="uriInput" className="block text-sm font-medium text-gray-700 mb-1">
-                        输入 UnityHub URI:
-                    </label>
-
-                    <input
-                        type="text"
-                        id="uriInput"
-                        value={inputUri}
-                        onChange={(e) => setInputUri(e.target.value)}
-                        placeholder="例如: unityhub://6000.0.63f1/9438f9b77a46"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    />
+            <div className="max-w-3xl mx-auto my-8 p-8 bg-white rounded-2xl shadow-xl border border-gray-100 space-y-8">
+                {/* 头部标题 */}
+                <div className="border-b border-gray-100 pb-4">
+                    <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight">
+                        UnityHub <span className="text-blue-600">modules.json</span> 生成器
+                    </h2>
+                    <p className="mt-2 text-sm text-gray-500">解析 UnityHub URI 并快速构建自动化安装配置文件</p>
                 </div>
 
-                {/* 解析按钮 */}
-                <button
-                    onClick={handleParseUri}
-                    disabled={!inputUri}
-                    className={`w-full py-2 px-4 rounded-md font-medium text-white ${
-                        inputUri
-                            ? 'bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
-                            : 'bg-gray-400 cursor-not-allowed'
-                    } transition duration-150`}
-                >
-                    解析 URI
-                </button>
-
-                {/* 平台选择 */}
-                <div>
-                    <label htmlFor="platformSelect" className="block text-sm font-medium text-gray-700 mb-1">
-                        平台 (Platform):
-                    </label>
-                    <select
-                        id="platformSelect"
-                        value={selectedPlatform}
-                        onChange={handlePlatformChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    >
-                        {Object.values(UnityReleaseDownloadPlatform).map((p) => (
-                            <option key={p} value={p}>
-                                {p}
-                            </option>
-                        ))}
-                    </select>
+                {/* URI 解析输入 */}
+                <div className="bg-gray-50 p-5 rounded-xl space-y-4">
+                    <div className="flex items-center space-x-2 mb-2">
+                        <label htmlFor="uriInput" className="text-sm font-semibold text-gray-700">UnityHub URI</label>
+                    </div>
+                    <div className="flex flex-col md:flex-row gap-3">
+                        <input
+                            type="text"
+                            id="uriInput"
+                            value={inputUri}
+                            onChange={(e) => setInputUri(e.target.value)}
+                            placeholder="unityhub://6000.0.63f1/9438f9b77a46"
+                            className="flex-1 px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all placeholder:text-gray-400"
+                        />
+                        <button
+                            onClick={handleParseUri}
+                            disabled={!inputUri}
+                            className={`px-6 py-3 rounded-lg font-bold text-white shadow-sm transition-all active:scale-95 ${
+                                inputUri ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-300 cursor-not-allowed'
+                            }`}
+                        >
+                            解析版本
+                        </button>
+                    </div>
                 </div>
 
-                {/* 架构选择 */}
-                <div>
-                    <label htmlFor="architectureSelect" className="block text-sm font-medium text-gray-700 mb-1">
-                        架构 (Architecture):
-                    </label>
+                {/* 配置参数 */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {/* 平台选择 */}
+                    <div className="space-y-2">
+                        <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">平台 (Platform)</label>
+                        <select
+                            value={selectedPlatform}
+                            onChange={handlePlatformChange}
+                            className="w-full px-3 py-2.5 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none cursor-pointer"
+                        >
+                            {Object.values(UnityReleaseDownloadPlatform).map((p) => (
+                                <option key={p} value={p}>{p}</option>
+                            ))}
+                        </select>
+                    </div>
 
-                    <select
-                        id="architectureSelect"
-                        value={selectedArchitecture}
-                        onChange={handleArchitectureChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    >
+                    {/* 架构选择 */}
+                    <div className="space-y-2">
+                        <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">架构 (Architecture)</label>
+                        <select
+                            value={selectedArchitecture}
+                            onChange={handleArchitectureChange}
+                            className="w-full px-3 py-2.5 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none cursor-pointer"
+                        >
+                            {Object.values(UnityReleaseDownloadArchitecture).map((a) => (
+                                <option key={a} value={a}>{a}</option>
+                            ))}
+                        </select>
+                    </div>
 
-                        {Object.values(UnityReleaseDownloadArchitecture).map((a) => (
-                            <option key={a} value={a}>
-                                {a}
-                            </option>
-                        ))}
-                    </select>
+                    {/* 流选择 */}
+                    <div className="space-y-2">
+                        <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">流 (Stream)</label>
+                        <select
+                            value={selectedStream}
+                            onChange={handleStreamChange}
+                            className="w-full px-3 py-2.5 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none cursor-pointer"
+                        >
+                            <option value="">(不指定)</option>
+                            {Object.values(UnityReleaseStream).map((s) => (
+                                <option key={s} value={s}>{s}</option>
+                            ))}
+                        </select>
+                    </div>
                 </div>
 
-                {/* 流选择 */}
-                <div>
-                    <label htmlFor="streamSelect" className="block text-sm font-medium text-gray-700 mb-1">
-                        流 (Stream):
-                    </label>
-
-                    <select
-                        id="streamSelect"
-                        value={selectedStream}
-                        onChange={handleStreamChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    >
-
-                        <option value="">不指定</option>
-
-                        {Object.values(UnityReleaseStream).map((s) => (
-                            <option key={s} value={s}>
-                                {s}
-                            </option>
-                        ))}
-                    </select>
-
-                </div>
-
-                {/* 授权选择（复选框） */}
-                <div>
-                    <span className="block text-sm font-medium text-gray-700 mb-2">授权 (Entitlements):</span>
-                    <div className="flex flex-wrap gap-3">
-
+                {/* 授权复选框 */}
+                <div className="pt-2">
+                    <label className="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-3">授权 (Entitlements)</label>
+                    <div className="flex flex-wrap gap-2">
                         {Object.values(UnityReleaseEntitlement).map((ent) => (
-                            <label key={ent} className="inline-flex items-center space-x-2 cursor-pointer">
+                            <label
+                                key={ent}
+                                className={`flex items-center px-4 py-2 rounded-full border transition-all cursor-pointer ${
+                                    selectedEntitlements.includes(ent)
+                                        ? 'bg-blue-50 border-blue-200 text-blue-700 shadow-sm'
+                                        : 'bg-white border-gray-200 text-gray-600 hover:border-gray-300'
+                                }`}
+                            >
                                 <input
                                     type="checkbox"
                                     value={ent}
                                     checked={selectedEntitlements.includes(ent)}
                                     onChange={handleEntitlementChange}
-                                    className="h-4 w-4 text-blue-600 rounded focus:ring-blue-500"
+                                    className="hidden" // 隐藏原生 checkbox，使用父容器样式
                                 />
-
-                                <span className="text-sm text-gray-700">{ent}</span>
-
+                                <span className="text-sm font-medium">{ent}</span>
                             </label>
                         ))}
                     </div>
                 </div>
 
-                {/* 解析结果 & 获取模块按钮 */}
-                {parsedVersion && (
-                    <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
-                        <p className="text-sm font-medium text-blue-800 mb-3">
-                            解析出的版本: <code className="bg-blue-100 px-1.5 py-0.5 rounded text-xs">{parsedVersion}</code>
-                        </p>
+                {/* 错误显示 */}
+                {error && (
+                    <div className="flex items-center p-4 bg-red-50 text-red-700 rounded-xl border border-red-100 animate-pulse">
+                        <span className="mr-2">⚠️</span>
+                        <p className="text-sm font-medium">{error}</p>
+                    </div>
+                )}
 
+                {/* 执行获取按钮 */}
+                {parsedVersion && (
+                    <div className="flex items-center justify-between p-4 bg-blue-600 rounded-xl text-white shadow-lg shadow-blue-200">
+                        <div>
+                            <p className="text-xs opacity-80">当前解析版本</p>
+                            <p className="font-mono font-bold text-lg">{parsedVersion}</p>
+                        </div>
                         <button
                             onClick={handleFetchModules}
                             disabled={loading}
-                            className={`w-full py-2 px-4 rounded-md font-medium text-white ${
-                                loading
-                                    ? 'bg-gray-500 cursor-not-allowed'
-                                    : 'bg-green-600 hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2'
-                            } transition duration-150`}
+                            className="px-8 py-3 bg-white text-blue-600 rounded-lg font-bold hover:bg-blue-50 transition-colors disabled:opacity-50"
                         >
                             {loading ? '获取中...' : '获取模块列表'}
                         </button>
                     </div>
                 )}
 
-                {/* 错误提示 */}
-                {error && (
-                    <div className="p-3 bg-red-50 text-red-700 rounded-md border border-red-200 text-sm">
-                        <strong>错误:</strong> {error}
-                    </div>
-
-                )}
-
-                {/* 加载提示（仅在加载且无错误时显示） */}
-                {loading && !error && !modules && (
-                    <p className="text-center text-gray-500 text-sm">正在从服务器获取数据...</p>
-                )}
-
                 {/* 结果展示 */}
                 {modules && (
-                    <div className="space-y-3 p-4 bg-green-50 rounded-lg border border-green-200">
-                        <div>
-                            <h3 className="text-lg font-semibold text-green-800">✅ 模块获取成功!</h3>
-                            <p className="text-sm text-gray-700">共获取到 <strong>{modules.length}</strong> 个模块。</p>
+                    <div className="mt-8 space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        <div className="flex items-center justify-between">
+                            <h3 className="text-lg font-bold text-gray-800 flex items-center">
+                                <span className="mr-2 text-green-500">✓</span>
+                                成功获取 {modules.length} 个模块
+                            </h3>
+                            <button
+                                onClick={handleDownloadJson}
+                                className="flex items-center px-4 py-2 bg-purple-100 text-purple-700 rounded-lg text-sm font-bold hover:bg-purple-200 transition"
+                            >
+                                下载 JSON
+                            </button>
                         </div>
 
-                        <button
-                            onClick={handleDownloadJson}
-                            className="w-full py-2 px-4 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition"
-                        >
-                            下载 modules.json
-                        </button>
-
-                        <pre className="bg-white p-3 rounded-md text-xs overflow-x-auto max-h-60 whitespace-pre-wrap break-words border border-gray-200">
-                            {JSON.stringify(modules, null, 2)}
-                        </pre>
+                        <div className="relative group">
+                            <div className="absolute -inset-1 bg-gradient-to-r from-purple-400 to-blue-400 rounded-xl blur opacity-20 group-hover:opacity-30 transition"></div>
+                            <pre className="relative bg-gray-900 text-gray-300 p-5 rounded-xl text-xs font-mono overflow-x-auto max-h-80 leading-relaxed shadow-inner">
+                                {JSON.stringify(modules, null, 2)}
+                            </pre>
+                        </div>
                     </div>
                 )}
             </div>

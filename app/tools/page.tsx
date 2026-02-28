@@ -49,7 +49,7 @@ export default function CommunityPage() {
 
               <CardContent>
                 <p className="text-gray-600 mb-4">用于生成 modules.json 文件</p>
-                <Button className="w-full" href="./UnityModule">使用</Button>
+                <Button className="w-full" href="./unityModule">使用</Button>
               </CardContent>
             </Card>
 
