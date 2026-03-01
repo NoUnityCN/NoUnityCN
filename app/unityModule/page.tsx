@@ -1,11 +1,10 @@
 // unityModule/page.tsx
 // 感谢 @HotYearKit 提供 C# 版本代码，没有他的贡献就没有这个模块的诞生。
 // 感谢 Larusso/unity-version-manager 开源项目
+
 'use client';
 
 import React, { useState, useCallback, useEffect } from 'react';
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import Inform from "@/components/inform";
 
@@ -528,8 +527,6 @@ const UnityModuleFetcherInner: React.FC = () => {
 
     return (
         <>
-            <SiteHeader/>
-
             {/*公告组件*/}
             <Inform filename="UnityModule" position="top-right" theme="yellow" />
 
@@ -692,7 +689,6 @@ const UnityModuleFetcherInner: React.FC = () => {
                 )}
             </div>
             <br/>
-            <SiteFooter/>
         </>
     );
 };

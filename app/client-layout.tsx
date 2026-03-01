@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import React, { useState } from "react"
 import { SidebarWrapper } from "@/components/sidebar-wrapper"
 import { SidebarButton } from "@/components/sidebar-button"
 
