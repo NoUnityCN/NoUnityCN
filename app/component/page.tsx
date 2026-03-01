@@ -102,7 +102,7 @@ export default function ComponentPage({searchParams,}: {
                                             Builtin Shaders (内置着色器)
                                         </Button>
                                         <Button variant="secondary" className="w-full" size="lg"
-                                                href={`./UnityModule?v=${version}`}>
+                                                href={`./unityModule?v=${version}`}>
                                             <Download className="w-5 h-5 mr-2"/>
                                             module.json 生成
                                         </Button>
