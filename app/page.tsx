@@ -3,8 +3,6 @@ import { Download, Share, Box, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
 import { useEffect, useState } from 'react';
 import { Input } from "@/components/ui/input";
 import {Inform} from "@/components/inform";
@@ -236,7 +234,6 @@ NoUnityCN**不是破解、修改、下载工具**，而只是一个方便检索U
             </div>
           </div>
       )}
-      <SiteHeader/>
 
       {/*公告组件*/}
       <Inform filename="main" position="top-right" theme="gray" />
@@ -448,7 +445,6 @@ NoUnityCN**不是破解、修改、下载工具**，而只是一个方便检索U
           </Card>
         </div>
       </main>
-      <SiteFooter/>
     </div>
   );
 }

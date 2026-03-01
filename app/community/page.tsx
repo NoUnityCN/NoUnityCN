@@ -1,5 +1,3 @@
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { MessageCircle, Users} from "lucide-react"
@@ -8,7 +6,6 @@ import {Badge} from "@/components/ui/badge";
 export default function CommunityPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <SiteHeader />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center mb-12">
@@ -133,7 +130,6 @@ export default function CommunityPage() {
           </div>
         </div>
       </main>
-      <SiteFooter />
     </div>
   )
 }

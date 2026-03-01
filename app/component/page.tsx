@@ -1,5 +1,3 @@
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
 import {Download, Home} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
@@ -72,7 +70,6 @@ export default function ComponentPage({searchParams,}: {
 
     return (
         <div className="min-h-screen flex flex-col">
-            <SiteHeader />
             <main className="flex-1">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <h1 className="text-4xl font-bold text-gray-900 mb-8 flex items-center gap-2">
@@ -318,7 +315,6 @@ export default function ComponentPage({searchParams,}: {
                     </div>
                 </div>
             </main>
-            <SiteFooter/>
         </div>
     )
 }

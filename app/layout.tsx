@@ -2,6 +2,9 @@ import type { Metadata } from "next"
 import "@/styles/globals.css"
 import { Analytics } from "@vercel/analytics/react"
 import ClientLayout from "./client-layout"
+import React from "react";
+import {SiteHeader} from "@/components/site-header";
+import {SiteFooter} from "@/components/site-footer";
 
 export const metadata: Metadata = {
   title: "NoUnityCN | Unity国际版下载站 - 让游戏开发更加简单",
@@ -21,7 +24,11 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-gray-50">
         <ClientLayout>
-          {children}
+            <SiteHeader />
+                <main className="flex-grow">
+                    {children}
+                </main>
+            <SiteFooter />
         </ClientLayout>
         <script dangerouslySetInnerHTML={{
           __html: `

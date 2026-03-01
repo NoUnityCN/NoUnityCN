@@ -1,11 +1,9 @@
 "use client";
+
 import { Download, Share, Box, Apple} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
-import { useEffect, useState } from 'react';
 
 type VersionDictionary = Record<string, string[]>;
 
@@ -14,7 +12,6 @@ export default function UnityhubPage() {
   // @ts-ignore
   return (
     <div className="min-h-screen flex flex-col">
-      <SiteHeader />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* 标题区域 */}
@@ -93,7 +90,6 @@ export default function UnityhubPage() {
 
         </div>
       </main>
-      <SiteFooter/>
     </div>
   );
 }
